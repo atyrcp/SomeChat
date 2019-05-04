@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		706230B6D1D4323793C6E343 /* Pods_SomeChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A7B7B30D4FBE584CCB6775E /* Pods_SomeChat.framework */; };
 		934299FD227B2D030084343E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934299FC227B2D030084343E /* AppDelegate.swift */; };
 		934299FF227B2D030084343E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 934299FE227B2D030084343E /* ViewController.swift */; };
 		93429A02227B2D030084343E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 93429A00227B2D030084343E /* Main.storyboard */; };
@@ -16,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		006C71833A0513B98994F634 /* Pods-SomeChat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeChat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SomeChat/Pods-SomeChat.debug.xcconfig"; sourceTree = "<group>"; };
+		058534DF0F23BC04ACDBAE60 /* Pods-SomeChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SomeChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-SomeChat/Pods-SomeChat.release.xcconfig"; sourceTree = "<group>"; };
+		2A7B7B30D4FBE584CCB6775E /* Pods_SomeChat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SomeChat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		934299F9227B2D030084343E /* SomeChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SomeChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		934299FC227B2D030084343E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		934299FE227B2D030084343E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -31,17 +35,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				706230B6D1D4323793C6E343 /* Pods_SomeChat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		213269D48260BF8ADD7267D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A7B7B30D4FBE584CCB6775E /* Pods_SomeChat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		934299F0227B2D030084343E = {
 			isa = PBXGroup;
 			children = (
 				934299FB227B2D030084343E /* SomeChat */,
 				934299FA227B2D030084343E /* Products */,
+				B27E66881E081E62E64AC876 /* Pods */,
+				213269D48260BF8ADD7267D2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -67,6 +82,15 @@
 			path = SomeChat;
 			sourceTree = "<group>";
 		};
+		B27E66881E081E62E64AC876 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				006C71833A0513B98994F634 /* Pods-SomeChat.debug.xcconfig */,
+				058534DF0F23BC04ACDBAE60 /* Pods-SomeChat.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 93429A0B227B2D050084343E /* Build configuration list for PBXNativeTarget "SomeChat" */;
 			buildPhases = (
+				4958603B1D911A235D668D2A /* [CP] Check Pods Manifest.lock */,
 				934299F5227B2D030084343E /* Sources */,
 				934299F6227B2D030084343E /* Frameworks */,
 				934299F7227B2D030084343E /* Resources */,
+				660DE168029763927DA14DF3 /* [CP] Embed Pods Frameworks */,
+				76E8807D22AA4F1F9A9D92A0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -133,6 +160,87 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4958603B1D911A235D668D2A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SomeChat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		660DE168029763927DA14DF3 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SomeChat/Pods-SomeChat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SomeChat/Pods-SomeChat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76E8807D22AA4F1F9A9D92A0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SomeChat/Pods-SomeChat-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseFirestore/gRPCCertificates-Firestore.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/gRPCCertificates-Firestore.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SomeChat/Pods-SomeChat-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		934299F5227B2D030084343E /* Sources */ = {
@@ -284,6 +392,7 @@
 		};
 		93429A0C227B2D050084343E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 006C71833A0513B98994F634 /* Pods-SomeChat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +411,7 @@
 		};
 		93429A0D227B2D050084343E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 058534DF0F23BC04ACDBAE60 /* Pods-SomeChat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
