@@ -16,6 +16,7 @@ class ViewController: UIViewController {
         return Firestore.firestore()
     }()
     var labelHeight: CGFloat = 0
+    var scrollViewHeight: CGFloat = 0
     
     @IBOutlet weak var chatRoomScrollView: UIScrollView!
     @IBOutlet weak var nickNameTextField: UITextField!
@@ -55,15 +56,27 @@ class ViewController: UIViewController {
                 messageLabel.numberOfLines = 0
                 messageLabel.frame = CGRect(x: 0, y: self.labelHeight, width: self.chatRoomScrollView.frame.width, height: messageLabel.frame.height)
                 messageLabel.sizeToFit()
+                
                 self.chatRoomScrollView.addSubview(messageLabel)
                 self.labelHeight += messageLabel.frame.height + 8
+                
+                let scrollViewWidth = self.chatRoomScrollView.frame.width
+                self.scrollViewHeight += messageLabel.frame.height + 8
+                self.chatRoomScrollView.contentSize = CGSize(width: scrollViewWidth, height: self.scrollViewHeight)
             }
+            let bottomOffset = CGPoint(x: 0, y: self.chatRoomScrollView.contentSize.height + self.chatRoomScrollView.contentInset.bottom - self.chatRoomScrollView.frame.size.height);
+            self.chatRoomScrollView.setContentOffset(bottomOffset, animated: true)
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         dataBaseRead()
+//        dataBase.collection("messages").getDocuments { (snap, _) in
+//            for doc in snap!.documents {
+//                doc.reference.delete()
+//            }
+//        }
     }
 }
 
